@@ -93,7 +93,7 @@ public final class TestUtils {
      * Poll the given {@code ready} function every {@code pollIntervalMs} milliseconds until it returns true,
      * or throw a TimeoutException if it doesn't returns true within {@code timeoutMs} milliseconds.
      * @return The remaining time left until timeout occurs
-     * (helpful if you have several calls which need to share a common timeout),
+     * (helpful if you have several calls which need to share a v1alpha1 timeout),
      * */
     public static long waitFor(String description, long pollIntervalMs, long timeoutMs, BooleanSupplier ready) {
         return waitFor(description, pollIntervalMs, timeoutMs, ready, () -> { });

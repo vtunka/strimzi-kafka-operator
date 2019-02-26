@@ -89,7 +89,7 @@ public class StUtils {
         // rolled when all the pods in snapshot have a different version in map
         map.keySet().retainAll(snapshot.keySet());
         if (log) {
-            LOGGER.debug("Pods in common: {}", new TreeMap(map));
+            LOGGER.debug("Pods in v1alpha1: {}", new TreeMap(map));
         }
         for (Map.Entry<String, String> e : map.entrySet()) {
             String currentResourceVersion = e.getValue();

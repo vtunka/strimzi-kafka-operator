@@ -6,7 +6,7 @@ package io.strimzi.systemtest;
 
 import io.fabric8.kubernetes.api.model.Secret;
 import io.fabric8.kubernetes.api.model.SecretBuilder;
-import io.strimzi.api.kafka.model.KafkaResources;
+import io.strimzi.api.kafka.common.KafkaResources;
 import io.strimzi.systemtest.utils.AvailabilityVerifier;
 import io.strimzi.systemtest.utils.StUtils;
 import io.strimzi.test.annotations.OpenShiftOnly;
@@ -31,12 +31,12 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
-import static io.strimzi.api.kafka.model.KafkaResources.clientsCaCertificateSecretName;
-import static io.strimzi.api.kafka.model.KafkaResources.clientsCaKeySecretName;
-import static io.strimzi.api.kafka.model.KafkaResources.clusterCaCertificateSecretName;
-import static io.strimzi.api.kafka.model.KafkaResources.clusterCaKeySecretName;
-import static io.strimzi.api.kafka.model.KafkaResources.kafkaStatefulSetName;
-import static io.strimzi.api.kafka.model.KafkaResources.zookeeperStatefulSetName;
+import static io.strimzi.api.kafka.common.KafkaResources.clientsCaCertificateSecretName;
+import static io.strimzi.api.kafka.common.KafkaResources.clientsCaKeySecretName;
+import static io.strimzi.api.kafka.common.KafkaResources.clusterCaCertificateSecretName;
+import static io.strimzi.api.kafka.common.KafkaResources.clusterCaKeySecretName;
+import static io.strimzi.api.kafka.common.KafkaResources.kafkaStatefulSetName;
+import static io.strimzi.api.kafka.common.KafkaResources.zookeeperStatefulSetName;
 import static io.strimzi.test.extensions.StrimziExtension.FLAKY;
 import static io.strimzi.test.extensions.StrimziExtension.REGRESSION;
 import static io.strimzi.test.TestUtils.map;

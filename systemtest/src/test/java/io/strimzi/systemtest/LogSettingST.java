@@ -6,8 +6,8 @@ package io.strimzi.systemtest;
 
 import io.fabric8.kubernetes.api.model.Container;
 import io.fabric8.kubernetes.api.model.EnvVar;
-import io.strimzi.api.kafka.model.EntityOperatorJvmOptions;
-import io.strimzi.api.kafka.model.JvmOptions;
+import io.strimzi.api.kafka.common.EntityOperatorJvmOptions;
+import io.strimzi.api.kafka.common.JvmOptions;
 import io.strimzi.systemtest.utils.StUtils;
 import io.strimzi.test.timemeasuring.Operation;
 import io.strimzi.test.timemeasuring.TimeMeasuringSystem;

@@ -4,7 +4,7 @@
  */
 package io.strimzi.systemtest;
 
-import io.strimzi.api.kafka.model.KafkaUser;
+import io.strimzi.api.kafka.v1alpha1.KafkaUser;
 import io.strimzi.test.extensions.StrimziExtension;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

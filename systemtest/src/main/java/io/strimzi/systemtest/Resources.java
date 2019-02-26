@@ -30,31 +30,31 @@ import io.fabric8.kubernetes.client.dsl.Resource;
 import io.fabric8.kubernetes.client.dsl.internal.CustomResourceOperationsImpl;
 import io.fabric8.openshift.client.OpenShiftClient;
 import io.strimzi.api.kafka.Crds;
-import io.strimzi.api.kafka.KafkaAssemblyList;
-import io.strimzi.api.kafka.KafkaConnectAssemblyList;
-import io.strimzi.api.kafka.KafkaConnectS2IAssemblyList;
-import io.strimzi.api.kafka.KafkaMirrorMakerList;
-import io.strimzi.api.kafka.KafkaTopicList;
-import io.strimzi.api.kafka.KafkaUserList;
-import io.strimzi.api.kafka.model.DoneableKafka;
-import io.strimzi.api.kafka.model.DoneableKafkaConnect;
-import io.strimzi.api.kafka.model.DoneableKafkaConnectS2I;
-import io.strimzi.api.kafka.model.DoneableKafkaMirrorMaker;
-import io.strimzi.api.kafka.model.DoneableKafkaTopic;
-import io.strimzi.api.kafka.model.DoneableKafkaUser;
-import io.strimzi.api.kafka.model.Kafka;
-import io.strimzi.api.kafka.model.KafkaBuilder;
-import io.strimzi.api.kafka.model.KafkaConnect;
-import io.strimzi.api.kafka.model.KafkaConnectBuilder;
-import io.strimzi.api.kafka.model.KafkaConnectS2I;
-import io.strimzi.api.kafka.model.KafkaConnectS2IBuilder;
-import io.strimzi.api.kafka.model.KafkaMirrorMaker;
-import io.strimzi.api.kafka.model.KafkaMirrorMakerBuilder;
-import io.strimzi.api.kafka.model.KafkaResources;
-import io.strimzi.api.kafka.model.KafkaTopic;
-import io.strimzi.api.kafka.model.KafkaTopicBuilder;
-import io.strimzi.api.kafka.model.KafkaUser;
-import io.strimzi.api.kafka.model.KafkaUserBuilder;
+import io.strimzi.api.kafka.v1alpha1.KafkaList;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectList;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2IList;
+import io.strimzi.api.kafka.v1alpha1.KafkaMirrorMakerList;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopicList;
+import io.strimzi.api.kafka.v1alpha1.KafkaUserList;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafka;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaConnect;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaConnectS2I;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaMirrorMaker;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaTopic;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaUser;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
+import io.strimzi.api.kafka.v1alpha1.KafkaBuilder;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnect;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectBuilder;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2I;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2IBuilder;
+import io.strimzi.api.kafka.v1alpha1.KafkaMirrorMaker;
+import io.strimzi.api.kafka.v1alpha1.KafkaMirrorMakerBuilder;
+import io.strimzi.api.kafka.common.KafkaResources;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopic;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopicBuilder;
+import io.strimzi.api.kafka.v1alpha1.KafkaUser;
+import io.strimzi.api.kafka.v1alpha1.KafkaUserBuilder;
 import io.strimzi.systemtest.utils.StUtils;
 import io.strimzi.test.TestUtils;
 import org.apache.logging.log4j.LogManager;
@@ -91,8 +91,8 @@ public class Resources {
         return client;
     }
 
-    private MixedOperation<Kafka, KafkaAssemblyList, DoneableKafka, Resource<Kafka, DoneableKafka>> kafka() {
-        return customResourcesWithCascading(Kafka.class, KafkaAssemblyList.class, DoneableKafka.class);
+    private MixedOperation<Kafka, KafkaList, DoneableKafka, Resource<Kafka, DoneableKafka>> kafka() {
+        return customResourcesWithCascading(Kafka.class, KafkaList.class, DoneableKafka.class);
     }
 
     // This logic is necessary only for the deletion of resources with `cascading: true`
@@ -100,16 +100,16 @@ public class Resources {
         return new CustomResourceOperationsImpl<T, L, D>(((DefaultKubernetesClient) client()).getHttpClient(), client().getConfiguration(), Crds.kafka().getSpec().getGroup(), Crds.kafka().getSpec().getVersion(), "kafkas", true, client().getNamespace(), null, true, null, null, false, resourceType, listClass, doneClass);
     }
 
-    private MixedOperation<KafkaConnect, KafkaConnectAssemblyList, DoneableKafkaConnect, Resource<KafkaConnect, DoneableKafkaConnect>> kafkaConnect() {
+    private MixedOperation<KafkaConnect, KafkaConnectList, DoneableKafkaConnect, Resource<KafkaConnect, DoneableKafkaConnect>> kafkaConnect() {
         return client()
                 .customResources(Crds.kafkaConnect(),
-                        KafkaConnect.class, KafkaConnectAssemblyList.class, DoneableKafkaConnect.class);
+                        KafkaConnect.class, KafkaConnectList.class, DoneableKafkaConnect.class);
     }
 
-    private MixedOperation<KafkaConnectS2I, KafkaConnectS2IAssemblyList, DoneableKafkaConnectS2I, Resource<KafkaConnectS2I, DoneableKafkaConnectS2I>> kafkaConnectS2I() {
+    private MixedOperation<KafkaConnectS2I, KafkaConnectS2IList, DoneableKafkaConnectS2I, Resource<KafkaConnectS2I, DoneableKafkaConnectS2I>> kafkaConnectS2I() {
         return client()
                 .customResources(Crds.kafkaConnectS2I(),
-                        KafkaConnectS2I.class, KafkaConnectS2IAssemblyList.class, DoneableKafkaConnectS2I.class);
+                        KafkaConnectS2I.class, KafkaConnectS2IList.class, DoneableKafkaConnectS2I.class);
     }
 
     private MixedOperation<KafkaMirrorMaker, KafkaMirrorMakerList, DoneableKafkaMirrorMaker, Resource<KafkaMirrorMaker, DoneableKafkaMirrorMaker>> kafkaMirrorMaker() {

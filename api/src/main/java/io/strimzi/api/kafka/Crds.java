@@ -14,18 +14,24 @@ import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.dsl.MixedOperation;
 import io.fabric8.kubernetes.client.dsl.Resource;
 import io.fabric8.kubernetes.internal.KubernetesDeserializer;
-import io.strimzi.api.kafka.model.DoneableKafka;
-import io.strimzi.api.kafka.model.DoneableKafkaConnect;
-import io.strimzi.api.kafka.model.DoneableKafkaConnectS2I;
-import io.strimzi.api.kafka.model.DoneableKafkaTopic;
-import io.strimzi.api.kafka.model.DoneableKafkaUser;
-import io.strimzi.api.kafka.model.DoneableKafkaMirrorMaker;
-import io.strimzi.api.kafka.model.Kafka;
-import io.strimzi.api.kafka.model.KafkaConnect;
-import io.strimzi.api.kafka.model.KafkaConnectS2I;
-import io.strimzi.api.kafka.model.KafkaMirrorMaker;
-import io.strimzi.api.kafka.model.KafkaTopic;
-import io.strimzi.api.kafka.model.KafkaUser;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafka;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaConnect;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaConnectS2I;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaTopic;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaUser;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaMirrorMaker;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnect;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2I;
+import io.strimzi.api.kafka.v1alpha1.KafkaMirrorMaker;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopic;
+import io.strimzi.api.kafka.v1alpha1.KafkaUser;
+import io.strimzi.api.kafka.v1alpha1.KafkaList;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectList;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2IList;
+import io.strimzi.api.kafka.v1alpha1.KafkaMirrorMakerList;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopicList;
+import io.strimzi.api.kafka.v1alpha1.KafkaUserList;
 
 import java.util.List;
 
@@ -157,24 +163,24 @@ public class Crds {
         return crd(Kafka.class);
     }
 
-    public static MixedOperation<Kafka, KafkaAssemblyList, DoneableKafka, Resource<Kafka, DoneableKafka>> kafkaOperation(KubernetesClient client) {
-        return client.customResources(kafka(), Kafka.class, KafkaAssemblyList.class, DoneableKafka.class);
+    public static MixedOperation<Kafka, KafkaList, DoneableKafka, Resource<Kafka, DoneableKafka>> kafkaOperation(KubernetesClient client) {
+        return client.customResources(kafka(), Kafka.class, KafkaList.class, DoneableKafka.class);
     }
 
     public static CustomResourceDefinition kafkaConnect() {
         return crd(KafkaConnect.class);
     }
 
-    public static MixedOperation<KafkaConnect, KafkaConnectAssemblyList, DoneableKafkaConnect, Resource<KafkaConnect, DoneableKafkaConnect>> kafkaConnectOperation(KubernetesClient client) {
-        return client.customResources(kafkaConnect(), KafkaConnect.class, KafkaConnectAssemblyList.class, DoneableKafkaConnect.class);
+    public static MixedOperation<KafkaConnect, KafkaConnectList, DoneableKafkaConnect, Resource<KafkaConnect, DoneableKafkaConnect>> kafkaConnectOperation(KubernetesClient client) {
+        return client.customResources(kafkaConnect(), KafkaConnect.class, KafkaConnectList.class, DoneableKafkaConnect.class);
     }
 
     public static CustomResourceDefinition kafkaConnectS2I() {
         return crd(KafkaConnectS2I.class);
     }
 
-    public static <D extends CustomResourceDoneable<T>, T extends CustomResource> MixedOperation<KafkaConnectS2I, KafkaConnectS2IAssemblyList, DoneableKafkaConnectS2I, Resource<KafkaConnectS2I, DoneableKafkaConnectS2I>> kafkaConnectS2iOperation(KubernetesClient client) {
-        return client.customResources(Crds.kafkaConnectS2I(), KafkaConnectS2I.class, KafkaConnectS2IAssemblyList.class, DoneableKafkaConnectS2I.class);
+    public static <D extends CustomResourceDoneable<T>, T extends CustomResource> MixedOperation<KafkaConnectS2I, KafkaConnectS2IList, DoneableKafkaConnectS2I, Resource<KafkaConnectS2I, DoneableKafkaConnectS2I>> kafkaConnectS2iOperation(KubernetesClient client) {
+        return client.customResources(Crds.kafkaConnectS2I(), KafkaConnectS2I.class, KafkaConnectS2IList.class, DoneableKafkaConnectS2I.class);
     }
 
     public static CustomResourceDefinition topic() {

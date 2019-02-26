@@ -6,9 +6,9 @@ package io.strimzi.operator.topic;
 
 import io.fabric8.kubernetes.api.model.ObjectMeta;
 import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;
-import io.strimzi.api.kafka.model.KafkaTopic;
-import io.strimzi.api.kafka.model.KafkaTopicBuilder;
-import io.strimzi.api.kafka.model.KafkaTopicSpec;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopic;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopicBuilder;
+import io.strimzi.api.kafka.common.KafkaTopicSpec;
 
 import org.apache.kafka.clients.admin.Config;
 import org.apache.kafka.clients.admin.ConfigEntry;

@@ -667,7 +667,7 @@ Used in: xref:type-EntityOperatorTemplate-{context}[`EntityOperatorTemplate`], x
 
 
 |https://v1-9.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.9/#localobjectreference-v1-core[LocalObjectReference] array
-|securityContext                1.2+<.<|Configures pod-level security attributes and common container settings.See external documentation of https://v1-9.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.9/#podsecuritycontext-v1-core[core/v1 podsecuritycontext].
+|securityContext                1.2+<.<|Configures pod-level security attributes and v1alpha1 container settings.See external documentation of https://v1-9.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.9/#podsecuritycontext-v1-core[core/v1 podsecuritycontext].
 
 
 |https://v1-9.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.9/#podsecuritycontext-v1-core[PodSecurityContext]

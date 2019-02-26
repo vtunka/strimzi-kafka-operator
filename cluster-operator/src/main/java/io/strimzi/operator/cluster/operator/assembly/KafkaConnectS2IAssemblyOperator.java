@@ -8,10 +8,10 @@ import io.fabric8.kubernetes.api.model.ConfigMap;
 import io.fabric8.kubernetes.api.model.HasMetadata;
 import io.fabric8.kubernetes.client.dsl.Resource;
 import io.fabric8.openshift.client.OpenShiftClient;
-import io.strimzi.api.kafka.KafkaConnectS2IAssemblyList;
-import io.strimzi.api.kafka.model.DoneableKafkaConnectS2I;
-import io.strimzi.api.kafka.model.ExternalLogging;
-import io.strimzi.api.kafka.model.KafkaConnectS2I;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2IList;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaConnectS2I;
+import io.strimzi.api.kafka.common.ExternalLogging;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2I;
 import io.strimzi.certs.CertManager;
 import io.strimzi.operator.cluster.model.ImagePullPolicy;
 import io.strimzi.operator.cluster.model.KafkaConnectS2ICluster;
@@ -46,7 +46,7 @@ import java.util.List;
  *     <li>A BuildConfig</li>
  * </ul>
  */
-public class KafkaConnectS2IAssemblyOperator extends AbstractAssemblyOperator<OpenShiftClient, KafkaConnectS2I, KafkaConnectS2IAssemblyList, DoneableKafkaConnectS2I, Resource<KafkaConnectS2I, DoneableKafkaConnectS2I>> {
+public class KafkaConnectS2IAssemblyOperator extends AbstractAssemblyOperator<OpenShiftClient, KafkaConnectS2I, KafkaConnectS2IList, DoneableKafkaConnectS2I, Resource<KafkaConnectS2I, DoneableKafkaConnectS2I>> {
 
     private static final Logger log = LogManager.getLogger(KafkaConnectS2IAssemblyOperator.class.getName());
     public static final String ANNO_STRIMZI_IO_LOGGING = Annotations.STRIMZI_DOMAIN + "/logging";
@@ -70,7 +70,7 @@ public class KafkaConnectS2IAssemblyOperator extends AbstractAssemblyOperator<Op
     @SuppressWarnings("checkstyle:parameternumber")
     public KafkaConnectS2IAssemblyOperator(Vertx vertx, boolean isOpenShift,
                                            CertManager certManager,
-                                           CrdOperator<OpenShiftClient, KafkaConnectS2I, KafkaConnectS2IAssemblyList, DoneableKafkaConnectS2I> connectOperator,
+                                           CrdOperator<OpenShiftClient, KafkaConnectS2I, KafkaConnectS2IList, DoneableKafkaConnectS2I> connectOperator,
                                            ConfigMapOperator configMapOperations,
                                            DeploymentConfigOperator deploymentConfigOperations,
                                            ServiceOperator serviceOperations,

@@ -6,11 +6,11 @@ package io.strimzi.operator.cluster.model;
 
 import io.fabric8.kubernetes.api.model.Container;
 import io.fabric8.kubernetes.api.model.EnvVar;
-import io.strimzi.api.kafka.model.CpuMemory;
-import io.strimzi.api.kafka.model.JvmOptions;
-import io.strimzi.api.kafka.model.Kafka;
-import io.strimzi.api.kafka.model.KafkaBuilder;
-import io.strimzi.api.kafka.model.Resources;
+import io.strimzi.api.kafka.common.CpuMemory;
+import io.strimzi.api.kafka.common.JvmOptions;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
+import io.strimzi.api.kafka.v1alpha1.KafkaBuilder;
+import io.strimzi.api.kafka.common.Resources;
 import io.strimzi.operator.common.model.Labels;
 import io.strimzi.test.TestUtils;
 

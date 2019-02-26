@@ -5,7 +5,7 @@
 
 package io.strimzi.operator.cluster.model;
 
-import io.strimzi.api.kafka.model.KafkaClusterSpec;
+import io.strimzi.api.kafka.common.KafkaClusterSpec;
 
 import java.util.List;
 import java.util.Map;

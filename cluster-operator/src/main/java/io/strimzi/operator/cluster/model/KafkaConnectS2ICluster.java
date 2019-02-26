@@ -25,8 +25,8 @@ import io.fabric8.openshift.api.model.ImageStreamBuilder;
 import io.fabric8.openshift.api.model.TagImportPolicyBuilder;
 import io.fabric8.openshift.api.model.TagReference;
 import io.fabric8.openshift.api.model.TagReferencePolicyBuilder;
-import io.strimzi.api.kafka.model.KafkaConnectS2I;
-import io.strimzi.api.kafka.model.KafkaConnectS2ISpec;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2I;
+import io.strimzi.api.kafka.common.KafkaConnectS2ISpec;
 import io.strimzi.operator.common.model.Labels;
 
 import java.util.Map;

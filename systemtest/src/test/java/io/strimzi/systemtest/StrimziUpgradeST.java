@@ -5,7 +5,7 @@
 package io.strimzi.systemtest;
 
 import io.fabric8.kubernetes.api.model.Pod;
-import io.strimzi.api.kafka.model.KafkaResources;
+import io.strimzi.api.kafka.common.KafkaResources;
 import io.strimzi.systemtest.utils.StUtils;
 import io.strimzi.test.extensions.StrimziExtension;
 import io.strimzi.test.TestUtils;

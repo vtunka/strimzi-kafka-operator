@@ -8,14 +8,14 @@ import io.fabric8.kubernetes.api.model.PersistentVolumeClaim;
 import io.fabric8.kubernetes.api.model.apiextensions.CustomResourceDefinition;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.strimzi.api.kafka.Crds;
-import io.strimzi.api.kafka.KafkaAssemblyList;
-import io.strimzi.api.kafka.model.DoneableKafka;
-import io.strimzi.api.kafka.model.JbodStorageBuilder;
-import io.strimzi.api.kafka.model.Kafka;
-import io.strimzi.api.kafka.model.KafkaBuilder;
-import io.strimzi.api.kafka.model.PersistentClaimStorage;
-import io.strimzi.api.kafka.model.PersistentClaimStorageBuilder;
-import io.strimzi.api.kafka.model.SingleVolumeStorage;
+import io.strimzi.api.kafka.v1alpha1.KafkaList;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafka;
+import io.strimzi.api.kafka.common.JbodStorageBuilder;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
+import io.strimzi.api.kafka.v1alpha1.KafkaBuilder;
+import io.strimzi.api.kafka.common.PersistentClaimStorage;
+import io.strimzi.api.kafka.common.PersistentClaimStorageBuilder;
+import io.strimzi.api.kafka.common.SingleVolumeStorage;
 import io.strimzi.operator.cluster.ResourceUtils;
 import io.strimzi.operator.cluster.model.AbstractModel;
 import io.strimzi.operator.cluster.model.KafkaCluster;
@@ -98,7 +98,7 @@ public class JbodStorageTest {
 
         // setting up a mock Kubernetes client
         this.mockClient = new MockKube()
-                .withCustomResourceDefinition(kafkaAssemblyCrd, Kafka.class, KafkaAssemblyList.class, DoneableKafka.class)
+                .withCustomResourceDefinition(kafkaAssemblyCrd, Kafka.class, KafkaList.class, DoneableKafka.class)
                 .end()
                 .build();
         ResourceUtils.mockHttpClientForWorkaroundRbac(mockClient);

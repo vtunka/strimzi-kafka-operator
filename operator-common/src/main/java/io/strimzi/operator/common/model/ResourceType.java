@@ -4,11 +4,11 @@
  */
 package io.strimzi.operator.common.model;
 
-import io.strimzi.api.kafka.model.Kafka;
-import io.strimzi.api.kafka.model.KafkaConnect;
-import io.strimzi.api.kafka.model.KafkaConnectS2I;
-import io.strimzi.api.kafka.model.KafkaMirrorMaker;
-import io.strimzi.api.kafka.model.KafkaUser;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnect;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2I;
+import io.strimzi.api.kafka.v1alpha1.KafkaMirrorMaker;
+import io.strimzi.api.kafka.v1alpha1.KafkaUser;
 
 public enum ResourceType {
 

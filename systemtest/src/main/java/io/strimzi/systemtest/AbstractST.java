@@ -23,22 +23,22 @@ import io.fabric8.kubernetes.client.CustomResourceList;
 import io.fabric8.kubernetes.client.NamespacedKubernetesClient;
 import io.fabric8.kubernetes.client.dsl.Resource;
 import io.strimzi.api.kafka.Crds;
-import io.strimzi.api.kafka.KafkaAssemblyList;
-import io.strimzi.api.kafka.KafkaConnectAssemblyList;
-import io.strimzi.api.kafka.KafkaMirrorMakerList;
-import io.strimzi.api.kafka.KafkaTopicList;
-import io.strimzi.api.kafka.model.DoneableKafka;
-import io.strimzi.api.kafka.model.DoneableKafkaConnect;
-import io.strimzi.api.kafka.model.DoneableKafkaMirrorMaker;
-import io.strimzi.api.kafka.model.DoneableKafkaTopic;
-import io.strimzi.api.kafka.model.Kafka;
-import io.strimzi.api.kafka.model.KafkaConnect;
-import io.strimzi.api.kafka.model.KafkaMirrorMaker;
-import io.strimzi.api.kafka.model.KafkaResources;
-import io.strimzi.api.kafka.model.KafkaTopic;
-import io.strimzi.api.kafka.model.KafkaUser;
-import io.strimzi.api.kafka.model.KafkaUserScramSha512ClientAuthentication;
-import io.strimzi.api.kafka.model.KafkaUserTlsClientAuthentication;
+import io.strimzi.api.kafka.v1alpha1.KafkaList;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectList;
+import io.strimzi.api.kafka.v1alpha1.KafkaMirrorMakerList;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopicList;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafka;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaConnect;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaMirrorMaker;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaTopic;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnect;
+import io.strimzi.api.kafka.v1alpha1.KafkaMirrorMaker;
+import io.strimzi.api.kafka.common.KafkaResources;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopic;
+import io.strimzi.api.kafka.v1alpha1.KafkaUser;
+import io.strimzi.api.kafka.common.KafkaUserScramSha512ClientAuthentication;
+import io.strimzi.api.kafka.common.KafkaUserTlsClientAuthentication;
 import io.strimzi.systemtest.interfaces.TestSeparator;
 import io.strimzi.test.timemeasuring.Operation;
 import io.strimzi.test.timemeasuring.TimeMeasuringSystem;
@@ -210,11 +210,11 @@ public abstract class AbstractST extends BaseITST implements TestSeparator {
     }
 
     void replaceKafkaResource(String resourceName, Consumer<Kafka> editor) {
-        replaceCrdResource(Kafka.class, KafkaAssemblyList.class, DoneableKafka.class, resourceName, editor);
+        replaceCrdResource(Kafka.class, KafkaList.class, DoneableKafka.class, resourceName, editor);
     }
 
     void replaceKafkaConnectResource(String resourceName, Consumer<KafkaConnect> editor) {
-        replaceCrdResource(KafkaConnect.class, KafkaConnectAssemblyList.class, DoneableKafkaConnect.class, resourceName, editor);
+        replaceCrdResource(KafkaConnect.class, KafkaConnectList.class, DoneableKafkaConnect.class, resourceName, editor);
     }
 
     void replaceTopicResource(String resourceName, Consumer<KafkaTopic> editor) {
@@ -599,7 +599,7 @@ public abstract class AbstractST extends BaseITST implements TestSeparator {
             throw new RuntimeException("The Secret " + kafkaUser.getMetadata().getName() + " lacks the 'password' key");
         }
         return "sasl.mechanism=SCRAM-SHA-512\n" +
-                "sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required \\\n" +
+                "sasl.jaas.config=org.apache.kafka.v1alpha1.security.scram.ScramLoginModule required \\\n" +
                 "username=\"" + kafkaUser.getMetadata().getName() + "\" \\\n" +
                 "password=\"" + password + "\";\n";
     }

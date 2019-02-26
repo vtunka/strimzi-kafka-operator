@@ -7,10 +7,10 @@ package io.strimzi.operator.cluster.model;
 import io.fabric8.kubernetes.api.model.Container;
 import io.fabric8.kubernetes.api.model.LocalObjectReference;
 import io.fabric8.kubernetes.api.model.PodSecurityContextBuilder;
-import io.strimzi.api.kafka.model.template.PodDisruptionBudgetTemplate;
-import io.strimzi.api.kafka.model.template.PodDisruptionBudgetTemplateBuilder;
-import io.strimzi.api.kafka.model.template.PodTemplate;
-import io.strimzi.api.kafka.model.template.PodTemplateBuilder;
+import io.strimzi.api.kafka.common.template.PodDisruptionBudgetTemplate;
+import io.strimzi.api.kafka.common.template.PodDisruptionBudgetTemplateBuilder;
+import io.strimzi.api.kafka.common.template.PodTemplate;
+import io.strimzi.api.kafka.common.template.PodTemplateBuilder;
 import io.strimzi.operator.common.model.Labels;
 import org.junit.Test;
 

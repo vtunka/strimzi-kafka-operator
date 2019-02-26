@@ -7,7 +7,7 @@ package io.strimzi.operator.topic;
 import io.fabric8.kubernetes.api.model.ObjectMeta;
 import io.fabric8.kubernetes.client.KubernetesClientException;
 import io.fabric8.kubernetes.client.Watcher;
-import io.strimzi.api.kafka.model.KafkaTopic;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopic;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 import org.apache.logging.log4j.LogManager;

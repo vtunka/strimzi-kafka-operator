@@ -8,10 +8,10 @@ import io.debezium.kafka.KafkaCluster;
 import io.debezium.kafka.ZookeeperServer;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.strimzi.api.kafka.Crds;
-import io.strimzi.api.kafka.KafkaTopicList;
-import io.strimzi.api.kafka.model.DoneableKafkaTopic;
-import io.strimzi.api.kafka.model.KafkaTopic;
-import io.strimzi.api.kafka.model.KafkaTopicBuilder;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopicList;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaTopic;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopic;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopicBuilder;
 import io.strimzi.test.mockkube.MockKube;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
@@ -52,7 +52,7 @@ public class TopicOperatorMockTest {
     private ZkTopicWatcher topicWatcher;
     private ZkTopicsWatcher topicsWatcher;
 
-    // TODO this is all in common with TOIT, so factor out a common base class
+    // TODO this is all in v1alpha1 with TOIT, so factor out a v1alpha1 base class
 
     @Before
     public void createMockKube(TestContext context) throws Exception {

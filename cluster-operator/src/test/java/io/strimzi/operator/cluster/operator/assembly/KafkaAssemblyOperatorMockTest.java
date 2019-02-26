@@ -15,17 +15,17 @@ import io.fabric8.kubernetes.api.model.apps.StatefulSetStatus;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.dsl.Resource;
 import io.strimzi.api.kafka.Crds;
-import io.strimzi.api.kafka.KafkaAssemblyList;
-import io.strimzi.api.kafka.model.DoneableKafka;
-import io.strimzi.api.kafka.model.EphemeralStorage;
-import io.strimzi.api.kafka.model.Kafka;
-import io.strimzi.api.kafka.model.KafkaBuilder;
-import io.strimzi.api.kafka.model.PersistentClaimStorage;
-import io.strimzi.api.kafka.model.PersistentClaimStorageBuilder;
-import io.strimzi.api.kafka.model.Resources;
-import io.strimzi.api.kafka.model.ResourcesBuilder;
-import io.strimzi.api.kafka.model.SingleVolumeStorage;
-import io.strimzi.api.kafka.model.Storage;
+import io.strimzi.api.kafka.v1alpha1.KafkaList;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafka;
+import io.strimzi.api.kafka.common.EphemeralStorage;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
+import io.strimzi.api.kafka.v1alpha1.KafkaBuilder;
+import io.strimzi.api.kafka.common.PersistentClaimStorage;
+import io.strimzi.api.kafka.common.PersistentClaimStorageBuilder;
+import io.strimzi.api.kafka.common.Resources;
+import io.strimzi.api.kafka.common.ResourcesBuilder;
+import io.strimzi.api.kafka.common.SingleVolumeStorage;
+import io.strimzi.api.kafka.common.Storage;
 import io.strimzi.operator.cluster.ClusterOperator;
 import io.strimzi.operator.cluster.ResourceUtils;
 import io.strimzi.operator.cluster.model.AbstractModel;
@@ -67,9 +67,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static io.strimzi.api.kafka.model.Quantities.normalizeCpu;
-import static io.strimzi.api.kafka.model.Quantities.normalizeMemory;
-import static io.strimzi.api.kafka.model.Storage.deleteClaim;
+import static io.strimzi.api.kafka.common.Quantities.normalizeCpu;
+import static io.strimzi.api.kafka.common.Quantities.normalizeMemory;
+import static io.strimzi.api.kafka.common.Storage.deleteClaim;
 import static java.util.Collections.emptyMap;
 import static java.util.Collections.emptySet;
 import static java.util.Collections.singletonMap;
@@ -229,7 +229,7 @@ public class KafkaAssemblyOperatorMockTest {
 
         CustomResourceDefinition kafkaAssemblyCrd = Crds.kafka();
 
-        mockClient = new MockKube().withCustomResourceDefinition(kafkaAssemblyCrd, Kafka.class, KafkaAssemblyList.class, DoneableKafka.class)
+        mockClient = new MockKube().withCustomResourceDefinition(kafkaAssemblyCrd, Kafka.class, KafkaList.class, DoneableKafka.class)
                 .withInitialInstances(Collections.singleton(cluster)).end().build();
         ResourceUtils.mockHttpClientForWorkaroundRbac(mockClient);
 
@@ -444,7 +444,7 @@ public class KafkaAssemblyOperatorMockTest {
 
     private Resource<Kafka, DoneableKafka> kafkaAssembly(String namespace, String name) {
         CustomResourceDefinition crd = mockClient.customResourceDefinitions().withName(Kafka.CRD_NAME).get();
-        return mockClient.customResources(crd, Kafka.class, KafkaAssemblyList.class, DoneableKafka.class)
+        return mockClient.customResources(crd, Kafka.class, KafkaList.class, DoneableKafka.class)
                 .inNamespace(namespace).withName(name);
     }
 

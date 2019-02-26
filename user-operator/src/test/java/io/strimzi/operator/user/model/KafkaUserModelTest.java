@@ -5,10 +5,10 @@
 package io.strimzi.operator.user.model;
 
 import io.fabric8.kubernetes.api.model.Secret;
-import io.strimzi.api.kafka.model.KafkaUser;
-import io.strimzi.api.kafka.model.KafkaUserAuthorizationSimple;
-import io.strimzi.api.kafka.model.KafkaUserSpec;
-import io.strimzi.api.kafka.model.KafkaUserTlsClientAuthentication;
+import io.strimzi.api.kafka.v1alpha1.KafkaUser;
+import io.strimzi.api.kafka.common.KafkaUserAuthorizationSimple;
+import io.strimzi.api.kafka.common.KafkaUserSpec;
+import io.strimzi.api.kafka.common.KafkaUserTlsClientAuthentication;
 import io.strimzi.certs.CertManager;
 import io.strimzi.operator.common.model.Labels;
 import io.strimzi.operator.common.operator.MockCertManager;

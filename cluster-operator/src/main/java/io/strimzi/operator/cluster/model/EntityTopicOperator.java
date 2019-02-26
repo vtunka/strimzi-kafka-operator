@@ -9,9 +9,9 @@ import io.fabric8.kubernetes.api.model.ContainerBuilder;
 import io.fabric8.kubernetes.api.model.EnvVar;
 import io.fabric8.kubernetes.api.model.Volume;
 import io.fabric8.kubernetes.api.model.VolumeMount;
-import io.strimzi.api.kafka.model.EntityOperatorSpec;
-import io.strimzi.api.kafka.model.EntityTopicOperatorSpec;
-import io.strimzi.api.kafka.model.Kafka;
+import io.strimzi.api.kafka.common.EntityOperatorSpec;
+import io.strimzi.api.kafka.common.EntityTopicOperatorSpec;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
 import io.strimzi.operator.common.model.Labels;
 import io.strimzi.operator.common.operator.resource.RoleBindingOperator;
 

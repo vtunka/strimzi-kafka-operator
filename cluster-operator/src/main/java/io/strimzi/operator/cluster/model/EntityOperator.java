@@ -14,12 +14,12 @@ import io.fabric8.kubernetes.api.model.Volume;
 import io.fabric8.kubernetes.api.model.apps.Deployment;
 import io.fabric8.kubernetes.api.model.apps.DeploymentStrategy;
 import io.fabric8.kubernetes.api.model.apps.DeploymentStrategyBuilder;
-import io.strimzi.api.kafka.model.EntityOperatorSpec;
-import io.strimzi.api.kafka.model.Kafka;
-import io.strimzi.api.kafka.model.KafkaResources;
-import io.strimzi.api.kafka.model.TlsSidecar;
-import io.strimzi.api.kafka.model.template.EntityOperatorTemplate;
-import io.strimzi.api.kafka.model.template.PodTemplate;
+import io.strimzi.api.kafka.common.EntityOperatorSpec;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
+import io.strimzi.api.kafka.common.KafkaResources;
+import io.strimzi.api.kafka.common.TlsSidecar;
+import io.strimzi.api.kafka.common.template.EntityOperatorTemplate;
+import io.strimzi.api.kafka.common.template.PodTemplate;
 import io.strimzi.operator.common.model.Labels;
 
 import java.util.ArrayList;

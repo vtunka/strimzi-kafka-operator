@@ -12,17 +12,17 @@ import io.fabric8.kubernetes.api.model.apps.Deployment;
 import io.fabric8.kubernetes.api.model.apps.StatefulSet;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.strimzi.api.kafka.Crds;
-import io.strimzi.api.kafka.KafkaAssemblyList;
-import io.strimzi.api.kafka.model.DoneableKafka;
-import io.strimzi.api.kafka.model.EntityOperatorSpec;
-import io.strimzi.api.kafka.model.EntityOperatorSpecBuilder;
-import io.strimzi.api.kafka.model.EntityTopicOperatorSpec;
-import io.strimzi.api.kafka.model.EntityTopicOperatorSpecBuilder;
-import io.strimzi.api.kafka.model.Kafka;
-import io.strimzi.api.kafka.model.KafkaBuilder;
-import io.strimzi.api.kafka.model.KafkaResources;
-import io.strimzi.api.kafka.model.TopicOperatorSpec;
-import io.strimzi.api.kafka.model.TopicOperatorSpecBuilder;
+import io.strimzi.api.kafka.v1alpha1.KafkaList;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafka;
+import io.strimzi.api.kafka.common.EntityOperatorSpec;
+import io.strimzi.api.kafka.common.EntityOperatorSpecBuilder;
+import io.strimzi.api.kafka.common.EntityTopicOperatorSpec;
+import io.strimzi.api.kafka.common.EntityTopicOperatorSpecBuilder;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
+import io.strimzi.api.kafka.v1alpha1.KafkaBuilder;
+import io.strimzi.api.kafka.common.KafkaResources;
+import io.strimzi.api.kafka.common.TopicOperatorSpec;
+import io.strimzi.api.kafka.common.TopicOperatorSpecBuilder;
 import io.strimzi.operator.cluster.ResourceUtils;
 import io.strimzi.operator.cluster.model.Ca;
 import io.strimzi.operator.cluster.model.ClientsCa;
@@ -83,7 +83,7 @@ public class MaintenanceTimeWindowsTest {
 
         // setting up a mock Kubernetes client
         this.mockClient = new MockKube()
-                .withCustomResourceDefinition(kafkaAssemblyCrd, Kafka.class, KafkaAssemblyList.class, DoneableKafka.class)
+                .withCustomResourceDefinition(kafkaAssemblyCrd, Kafka.class, KafkaList.class, DoneableKafka.class)
                 .withInitialInstances(Collections.singleton(this.kafka))
                 .end()
                 .build();

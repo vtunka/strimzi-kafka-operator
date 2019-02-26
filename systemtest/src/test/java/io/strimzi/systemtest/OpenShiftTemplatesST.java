@@ -5,19 +5,19 @@
 package io.strimzi.systemtest;
 
 import io.strimzi.api.kafka.Crds;
-import io.strimzi.api.kafka.KafkaAssemblyList;
-import io.strimzi.api.kafka.KafkaConnectAssemblyList;
-import io.strimzi.api.kafka.KafkaConnectS2IAssemblyList;
-import io.strimzi.api.kafka.KafkaTopicList;
-import io.strimzi.api.kafka.model.DoneableKafka;
-import io.strimzi.api.kafka.model.DoneableKafkaConnect;
-import io.strimzi.api.kafka.model.DoneableKafkaConnectS2I;
-import io.strimzi.api.kafka.model.DoneableKafkaTopic;
-import io.strimzi.api.kafka.model.Kafka;
-import io.strimzi.api.kafka.model.KafkaConnect;
-import io.strimzi.api.kafka.model.KafkaConnectS2I;
-import io.strimzi.api.kafka.model.KafkaTopic;
-import io.strimzi.api.kafka.model.PersistentClaimStorage;
+import io.strimzi.api.kafka.v1alpha1.KafkaList;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectList;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2IList;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopicList;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafka;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaConnect;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaConnectS2I;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaTopic;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnect;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2I;
+import io.strimzi.api.kafka.v1alpha1.KafkaTopic;
+import io.strimzi.api.kafka.common.PersistentClaimStorage;
 import io.strimzi.test.annotations.OpenShiftOnly;
 import io.strimzi.test.extensions.StrimziExtension;
 import io.strimzi.test.TestUtils;
@@ -56,15 +56,15 @@ public class OpenShiftTemplatesST extends AbstractST {
     private Oc oc = (Oc) KUBE_CLIENT;
 
     private Kafka getKafkaWithName(String clusterName) {
-        return CLIENT.customResources(Crds.kafka(), Kafka.class, KafkaAssemblyList.class, DoneableKafka.class).inNamespace(NAMESPACE).withName(clusterName).get();
+        return CLIENT.customResources(Crds.kafka(), Kafka.class, KafkaList.class, DoneableKafka.class).inNamespace(NAMESPACE).withName(clusterName).get();
     }
 
     private KafkaConnect getKafkaConnectWithName(String clusterName) {
-        return CLIENT.customResources(Crds.kafkaConnect(), KafkaConnect.class, KafkaConnectAssemblyList.class, DoneableKafkaConnect.class).inNamespace(NAMESPACE).withName(clusterName).get();
+        return CLIENT.customResources(Crds.kafkaConnect(), KafkaConnect.class, KafkaConnectList.class, DoneableKafkaConnect.class).inNamespace(NAMESPACE).withName(clusterName).get();
     }
 
     private KafkaConnectS2I getKafkaConnectS2IWithName(String clusterName) {
-        return CLIENT.customResources(Crds.kafkaConnectS2I(), KafkaConnectS2I.class, KafkaConnectS2IAssemblyList.class, DoneableKafkaConnectS2I.class).inNamespace(NAMESPACE).withName(clusterName).get();
+        return CLIENT.customResources(Crds.kafkaConnectS2I(), KafkaConnectS2I.class, KafkaConnectS2IList.class, DoneableKafkaConnectS2I.class).inNamespace(NAMESPACE).withName(clusterName).get();
     }
 
     @Test

@@ -6,12 +6,12 @@ package io.strimzi.operator.user.model;
 
 import io.fabric8.kubernetes.api.model.Secret;
 import io.fabric8.kubernetes.api.model.SecretBuilder;
-import io.strimzi.api.kafka.model.AclRule;
-import io.strimzi.api.kafka.model.KafkaUser;
-import io.strimzi.api.kafka.model.KafkaUserAuthentication;
-import io.strimzi.api.kafka.model.KafkaUserAuthorizationSimple;
-import io.strimzi.api.kafka.model.KafkaUserScramSha512ClientAuthentication;
-import io.strimzi.api.kafka.model.KafkaUserTlsClientAuthentication;
+import io.strimzi.api.kafka.common.AclRule;
+import io.strimzi.api.kafka.v1alpha1.KafkaUser;
+import io.strimzi.api.kafka.common.KafkaUserAuthentication;
+import io.strimzi.api.kafka.common.KafkaUserAuthorizationSimple;
+import io.strimzi.api.kafka.common.KafkaUserScramSha512ClientAuthentication;
+import io.strimzi.api.kafka.common.KafkaUserTlsClientAuthentication;
 import io.strimzi.certs.CertAndKey;
 import io.strimzi.certs.CertManager;
 import io.strimzi.operator.cluster.model.ClientsCa;

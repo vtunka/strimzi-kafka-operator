@@ -25,15 +25,15 @@ import io.fabric8.kubernetes.api.model.networking.NetworkPolicyIngressRuleBuilde
 import io.fabric8.kubernetes.api.model.networking.NetworkPolicyPeer;
 import io.fabric8.kubernetes.api.model.networking.NetworkPolicyPort;
 import io.fabric8.kubernetes.api.model.policy.PodDisruptionBudget;
-import io.strimzi.api.kafka.model.EphemeralStorage;
-import io.strimzi.api.kafka.model.InlineLogging;
-import io.strimzi.api.kafka.model.Kafka;
-import io.strimzi.api.kafka.model.KafkaResources;
-import io.strimzi.api.kafka.model.Logging;
-import io.strimzi.api.kafka.model.PersistentClaimStorage;
-import io.strimzi.api.kafka.model.TlsSidecar;
-import io.strimzi.api.kafka.model.ZookeeperClusterSpec;
-import io.strimzi.api.kafka.model.template.ZookeeperClusterTemplate;
+import io.strimzi.api.kafka.common.EphemeralStorage;
+import io.strimzi.api.kafka.common.InlineLogging;
+import io.strimzi.api.kafka.v1alpha1.Kafka;
+import io.strimzi.api.kafka.common.KafkaResources;
+import io.strimzi.api.kafka.common.Logging;
+import io.strimzi.api.kafka.common.PersistentClaimStorage;
+import io.strimzi.api.kafka.common.TlsSidecar;
+import io.strimzi.api.kafka.common.ZookeeperClusterSpec;
+import io.strimzi.api.kafka.common.template.ZookeeperClusterTemplate;
 import io.strimzi.certs.CertAndKey;
 import io.strimzi.operator.common.model.Labels;
 

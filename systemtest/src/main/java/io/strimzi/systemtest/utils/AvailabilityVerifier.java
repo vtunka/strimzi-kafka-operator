@@ -10,7 +10,7 @@ import io.fabric8.kubernetes.api.model.Service;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.openshift.api.model.Route;
 import io.fabric8.openshift.client.OpenShiftClient;
-import io.strimzi.api.kafka.model.KafkaResources;
+import io.strimzi.api.kafka.common.KafkaResources;
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -43,7 +43,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import static io.strimzi.api.kafka.model.KafkaResources.externalBootstrapServiceName;
+import static io.strimzi.api.kafka.common.KafkaResources.externalBootstrapServiceName;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class AvailabilityVerifier {

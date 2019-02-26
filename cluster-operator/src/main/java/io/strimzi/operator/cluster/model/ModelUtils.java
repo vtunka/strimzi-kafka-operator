@@ -15,16 +15,16 @@ import io.fabric8.kubernetes.api.model.ResourceRequirementsBuilder;
 import io.fabric8.kubernetes.api.model.Secret;
 import io.fabric8.kubernetes.api.model.SecretBuilder;
 import io.fabric8.kubernetes.api.model.apps.StatefulSet;
-import io.strimzi.api.kafka.model.CertificateAuthority;
-import io.strimzi.api.kafka.model.CpuMemory;
-import io.strimzi.api.kafka.model.JbodStorage;
-import io.strimzi.api.kafka.model.PersistentClaimStorage;
-import io.strimzi.api.kafka.model.Resources;
-import io.strimzi.api.kafka.model.Storage;
-import io.strimzi.api.kafka.model.TlsSidecar;
-import io.strimzi.api.kafka.model.TlsSidecarLogLevel;
-import io.strimzi.api.kafka.model.template.PodDisruptionBudgetTemplate;
-import io.strimzi.api.kafka.model.template.PodTemplate;
+import io.strimzi.api.kafka.common.CertificateAuthority;
+import io.strimzi.api.kafka.common.CpuMemory;
+import io.strimzi.api.kafka.common.JbodStorage;
+import io.strimzi.api.kafka.common.PersistentClaimStorage;
+import io.strimzi.api.kafka.common.Resources;
+import io.strimzi.api.kafka.common.Storage;
+import io.strimzi.api.kafka.common.TlsSidecar;
+import io.strimzi.api.kafka.common.TlsSidecarLogLevel;
+import io.strimzi.api.kafka.common.template.PodDisruptionBudgetTemplate;
+import io.strimzi.api.kafka.common.template.PodTemplate;
 import io.strimzi.certs.CertAndKey;
 import io.strimzi.operator.cluster.KafkaUpgradeException;
 import io.strimzi.operator.common.model.Labels;
@@ -41,8 +41,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import static io.strimzi.api.kafka.model.Quantities.normalizeCpu;
-import static io.strimzi.api.kafka.model.Quantities.normalizeMemory;
+import static io.strimzi.api.kafka.common.Quantities.normalizeCpu;
+import static io.strimzi.api.kafka.common.Quantities.normalizeMemory;
 
 public class ModelUtils {
     private ModelUtils() {}

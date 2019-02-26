@@ -784,7 +784,7 @@ public class MockKube {
         }
 
         public NonNamespaceOperation<CM, CML, DCM, R> buildNonNamespaced() {
-            // TODO factor out common with build(), which is more-or-less identical
+            // TODO factor out v1alpha1 with build(), which is more-or-less identical
             NonNamespaceOperation<CM, CML, DCM, R> mixed = mock(NonNamespaceOperation.class);
 
             when(mixed.list()).thenAnswer(i -> mockList(p -> true));

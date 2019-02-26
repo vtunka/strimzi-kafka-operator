@@ -4,7 +4,7 @@
  */
 package io.strimzi.operator.user;
 
-import io.strimzi.api.kafka.model.CertificateAuthority;
+import io.strimzi.api.kafka.common.CertificateAuthority;
 import io.strimzi.operator.common.InvalidConfigurationException;
 import io.strimzi.operator.common.model.Labels;
 

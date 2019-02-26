@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Generates documentation/book/common/version-dependent-attrs.adoc
+# Generates documentation/book/v1alpha1/version-dependent-attrs.adoc
 # according to the values in kafka-versions
 
 . $(dirname $0)/../multi-platform-support.sh

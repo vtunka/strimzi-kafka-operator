@@ -10,15 +10,15 @@ import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClientException;
 import io.fabric8.openshift.client.OpenShiftClient;
 import io.strimzi.api.kafka.Crds;
-import io.strimzi.api.kafka.KafkaConnectAssemblyList;
-import io.strimzi.api.kafka.KafkaConnectS2IAssemblyList;
-import io.strimzi.api.kafka.KafkaMirrorMakerList;
-import io.strimzi.api.kafka.model.DoneableKafkaConnect;
-import io.strimzi.api.kafka.model.DoneableKafkaConnectS2I;
-import io.strimzi.api.kafka.model.DoneableKafkaMirrorMaker;
-import io.strimzi.api.kafka.model.KafkaConnect;
-import io.strimzi.api.kafka.model.KafkaConnectS2I;
-import io.strimzi.api.kafka.model.KafkaMirrorMaker;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectList;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2IList;
+import io.strimzi.api.kafka.v1alpha1.KafkaMirrorMakerList;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaConnect;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaConnectS2I;
+import io.strimzi.api.kafka.v1alpha1.DoneableKafkaMirrorMaker;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnect;
+import io.strimzi.api.kafka.v1alpha1.KafkaConnectS2I;
+import io.strimzi.api.kafka.v1alpha1.KafkaMirrorMaker;
 import io.strimzi.certs.OpenSslCertManager;
 import io.strimzi.operator.cluster.model.ImagePullPolicy;
 import io.strimzi.operator.cluster.model.KafkaVersion;
@@ -102,8 +102,8 @@ public class Main {
         ConfigMapOperator configMapOperations = new ConfigMapOperator(vertx, client);
         DeploymentOperator deploymentOperations = new DeploymentOperator(vertx, client);
         SecretOperator secretOperations = new SecretOperator(vertx, client);
-        CrdOperator<KubernetesClient, KafkaConnect, KafkaConnectAssemblyList, DoneableKafkaConnect> kco =
-                new CrdOperator<>(vertx, client, KafkaConnect.class, KafkaConnectAssemblyList.class, DoneableKafkaConnect.class);
+        CrdOperator<KubernetesClient, KafkaConnect, KafkaConnectList, DoneableKafkaConnect> kco =
+                new CrdOperator<>(vertx, client, KafkaConnect.class, KafkaConnectList.class, DoneableKafkaConnect.class);
         CrdOperator<KubernetesClient, KafkaMirrorMaker, KafkaMirrorMakerList, DoneableKafkaMirrorMaker> kmmo =
                 new CrdOperator<>(vertx, client, KafkaMirrorMaker.class, KafkaMirrorMakerList.class, DoneableKafkaMirrorMaker.class);
         NetworkPolicyOperator networkPolicyOperator = new NetworkPolicyOperator(vertx, client);
@@ -173,7 +173,7 @@ public class Main {
         ImageStreamOperator imagesStreamOperations;
         BuildConfigOperator buildConfigOperations;
         DeploymentConfigOperator deploymentConfigOperations;
-        CrdOperator<OpenShiftClient, KafkaConnectS2I, KafkaConnectS2IAssemblyList, DoneableKafkaConnectS2I> kafkaConnectS2iCrdOperator;
+        CrdOperator<OpenShiftClient, KafkaConnectS2I, KafkaConnectS2IList, DoneableKafkaConnectS2I> kafkaConnectS2iCrdOperator;
         NetworkPolicyOperator networkPolicyOperator;
         PodDisruptionBudgetOperator podDisruptionBudgetOperator;
         KafkaConnectS2IAssemblyOperator kafkaConnectS2IClusterOperations;
@@ -181,7 +181,7 @@ public class Main {
         imagesStreamOperations = new ImageStreamOperator(vertx, osClient);
         buildConfigOperations = new BuildConfigOperator(vertx, osClient);
         deploymentConfigOperations = new DeploymentConfigOperator(vertx, osClient);
-        kafkaConnectS2iCrdOperator = new CrdOperator<>(vertx, osClient, KafkaConnectS2I.class, KafkaConnectS2IAssemblyList.class, DoneableKafkaConnectS2I.class);
+        kafkaConnectS2iCrdOperator = new CrdOperator<>(vertx, osClient, KafkaConnectS2I.class, KafkaConnectS2IList.class, DoneableKafkaConnectS2I.class);
         networkPolicyOperator = new NetworkPolicyOperator(vertx, client);
         podDisruptionBudgetOperator = new PodDisruptionBudgetOperator(vertx, client);
         kafkaConnectS2IClusterOperations = new KafkaConnectS2IAssemblyOperator(vertx, isOpenShift,
