@@ -5,7 +5,6 @@ source ${CURDIR}/test_func.sh
 TESTCASE=$1
 JUNIT_TAGS=$2
 TEST_PROFILE=${3:-systemtests}
-DEFAULT_OPENSHIFT_URL="https://localhost:8443"
 DEFAULT_OPENSHIFT_PROJECT="myproject"
 
 if [ -n "$TESTCASE" ]; then
@@ -22,8 +21,8 @@ STATS_PID=$!
 info "process for checking system resources is running with PID: ${STATS_PID}"
 
 export KUBERNETES_API_TOKEN=$(oc whoami -t)
+export KUBERNETES_API_URL=$(oc whoami --show-server=true)
 export KUBERNETES_NAMESPACE=${DEFAULT_OPENSHIFT_PROJECT}
-export KUBERNETES_API_URL=${KUBERNETES_API_URL:-${DEFAULT_OPENSHIFT_URL}}
 
 #run tests
 run_test ${TESTCASE} ${JUNIT_TAGS} ${TEST_PROFILE} || failure=$(($failure + 1))
